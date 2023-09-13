@@ -1,0 +1,28 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 03-31-2022
+  @last modified by  : Anup Kaage
+-->
+<template>
+   <lightning-card title="Greater of three Numbers">
+    <lightning-input label = "Enter first num :" onchange = {first} value={n1}></lightning-input>
+    <lightning-input label = "Enter Second num :" onchange = {second} value={n2}></lightning-input>
+    <lightning-input label = "Enter Third num :" onchange = {third} value={n3}></lightning-input>
+    <lightning-button-group>
+        <lightning-button label="calculate" onclick={calculate}></lightning-button>
+        <lightning-button label="cancel" onclick={cancel}></lightning-button>
+    </lightning-button-group>
+   </lightning-card>
+   <lightning-card title="Greater of three Numbers-Unified">
+    <lightning-input label = "Enter first num :" onchange = {capture} value={n1} name="aval"></lightning-input>
+    <lightning-input label = "Enter Second num :" onchange = {capture} value={n2} name="bval"></lightning-input>
+    <lightning-input label = "Enter Third num :" onchange = {capture} value={n3} name="cval"></lightning-input>
+    <lightning-button-group>
+        <lightning-button label="calculate" onclick={calculate}></lightning-button>
+        <lightning-button label="cancel" onclick={cancel}></lightning-button>
+    </lightning-button-group>
+   </lightning-card>
+    
+</template>

@@ -1,0 +1,17 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 04-06-2022
+  @last modified by  : Anup Kaage
+-->
+<template>
+    <lightning-card title="Create Account" >    
+        <lightning-input type="text" label="Account Name" onchange={callnm} ></lightning-input>
+        <lightning-input type="text" label="Account Phone" onchange={callph} ></lightning-input>
+        <lightning-input type="text" label="Account Fax" onchange={callfx} ></lightning-input>
+        <lightning-input type="text" label="Account Industry" onchange={callin} ></lightning-input>
+        <lightning-button label="Save" onclick={save} ></lightning-button>
+    </lightning-card>
+    
+</template>

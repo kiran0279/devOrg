@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>saveFiles</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>on_boarding</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>Job_Application__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Job_Application__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Job_Application__c.Address__c</members>
+        <members>Job_Application__c.Adhar_Number__c</members>
+        <members>Job_Application__c.Degree_Btech__c</members>
+        <members>Job_Application__c.Btech_College_Name__c</members>
+        <members>Job_Application__c.Btech_Percent__c</members>
+        <members>Job_Application__c.Company_Name__c</members>
+        <members>Job_Application__c.Current_Package__c</members>
+        <members>Job_Application__c.Domain__c</members>
+        <members>Job_Application__c.Email__c</members>
+        <members>Job_Application__c.Package__c</members>
+        <members>Job_Application__c.Experience__c</members>
+        <members>Job_Application__c.Father_Name__c</members>
+        <members>Job_Application__c.First_Name__c</members>
+        <members>Job_Application__c.Inter_Diploma_College_Name__c</members>
+        <members>Job_Application__c.Name</members>
+        <members>Job_Application__c.Last_Name__c</members>
+        <members>Job_Application__c.Percent_In_Inter_Diploma__c</members>
+        <members>Job_Application__c.Percent_In_SSC__c</members>
+        <members>Job_Application__c.Phone__c</members>
+        <members>Job_Application__c.Skills__c</members>
+        <members>Job_Application__c.SSC_School_Name__c</members>
+        <name>CustomField</name>
+    </types>
+
+    <version>57.0</version>
+</Package>

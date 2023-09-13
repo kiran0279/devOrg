@@ -1,0 +1,34 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 04-11-2022
+  @last modified by  : Anup Kaage
+-->
+<template>
+    <lightning-card title="Enter the Email deatails ">
+        <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium">
+            <lightning-input label="From" type="email" required="true" placeholder="abc@email.com" onchange={handleFrom} ></lightning-input> 
+        </div>
+        <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium">
+            <lightning-input label="Email" type="email" required="true" placeholder="abc@email.com" onchange={handleChange} ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium">
+            <lightning-input label="CC" type="email" placeholder="abc@email.com" ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium">
+            <lightning-input label="Subject" required="true" placeholder="Subject" onchange={handleSubject} ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium">
+            <lightning-input-rich-text label="Mail Body" value={richtext} onchange={handleBody} ></lightning-input-rich-text>
+        </div>
+        <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium">
+            <lightning-button label="Send" variant="success" onclick={sendEmailHandler} ></lightning-button>
+        </div>
+        <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium">
+            <lightning-button label="Reset" onclick={handleReset} variant="brand" ></lightning-button>
+        </div>
+
+    </lightning-card>
+    
+</template>

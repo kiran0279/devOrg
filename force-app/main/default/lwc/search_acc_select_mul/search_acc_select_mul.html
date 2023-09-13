@@ -1,0 +1,19 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 04-18-2022
+  @last modified by  : Anup Kaage
+-->
+<template>
+    <lightning-card title="search Account">
+        <p class="slds-p-horizontal_small">
+            <lightning-input  type="search" class="slds-m-bottom_small" label="Search Account Name" onchange={searchAccountAction} value={accountName}></lightning-input>
+        </p>
+        <template for:each={accountList} for:item="accObj" for:index="index">                
+            <div class="slds-hint-parent" key={accObj.Id}>
+               <p>{accObj.Name}</p>
+            </div>            
+        </template>  
+    </lightning-card>
+</template>

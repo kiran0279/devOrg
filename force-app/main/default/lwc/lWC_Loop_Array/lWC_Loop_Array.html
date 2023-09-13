@@ -1,0 +1,26 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 04-04-2022
+  @last modified by  : Anup Kaage
+-->
+<template>
+    <lightning-card title="Simple Array">
+        <template for:each={evnnum} for:item=ev>
+            <p key={ev}>{ev}</p>
+        </template>
+
+        <template iterator:item={evnnum}>
+            <p key={item.value}>{item.value}</p>
+        </template>
+    </lightning-card>
+
+    <lightning-card title="Complex Data">
+        StudentName : {std.name}        <p></p>
+        StudentAge : {std.Age}          <p></p>
+        StudentCity : {std.City}        <p></p>
+        StudentSal : {std.sal}          <p></p>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,100 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 05-26-2022
+  @last modified by  : Saikiran Chintakayala
+-->
+<template>
+        <lightning-card title="Fill The Application Form" >
+            <div class="slds-c-card-radius-border">    
+                <div class="slds-card slds-card_boundary slds-m-around_medium">
+                    <lightning-progress-indicator current-step={currentStep} type="path" variant="base">
+                        <lightning-progress-step label="Personal Details" value="1" onclick={handleOnStepClick}></lightning-progress-step>
+                        <lightning-progress-step label="Education Details" value="2" onclick={handleOnStepClick}></lightning-progress-step>
+                        <lightning-progress-step label="Work Experiance" value="3" onclick={handleOnStepClick}></lightning-progress-step>
+                    </lightning-progress-indicator>
+                </div>
+                <template if:true={isStepOne}>
+                    <div class="slds-var-p-around_small">
+                                
+                        <lightning-layout multiple-rows>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="text" label="First Name" value={firstname} placeholder="Enter First Name" onchange={callfrn} required ></lightning-input>
+                                <lightning-input type="text" label="Last Name" value={lastname} placeholder="Enter Last Name" onchange={calllsn} required></lightning-input>
+                                <lightning-input type="text" label="Father Name" value={father} placeholder="Enter First Name" onchange={callatherf} required ></lightning-input>
+                                <lightning-textarea type="text" label="Address" value={address} placeholder="Enter Address to communicate" onchange={calladdress} required ></lightning-textarea>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="number" label="Adhar number" value={adhar} placeholder="Enter Adhar Number"  message-when-pattern-mismatch="Please enter a valid Adhar number" onchange={calladhnum} required ></lightning-input>
+                                <lightning-input type="Phone" label="Phone" value={phone} placeholder="Ex : 9123456780" pattern="[6-9]{1}[0-9]{9}$" message-when-pattern-mismatch="Please enter a valid phone number" onchange={callph} required ></lightning-input>
+                                <lightning-input type="Email" label="Email" value={email} placeholder="abc@gmail.com" onchange={callemail} required ></lightning-input>
+                                <template if:true={showSpinner} >
+                                    <lightning-spinner alternative-text="Loading" size="medium" class="spinnerClass"></lightning-spinner>
+                                </template>
+                                <lightning-input type="file" onchange={onFileUpload} required name="uploadFile" label="Upload File"  multiple>
+                                </lightning-input>
+                                <template  if:true={filesData}>
+                                <template for:each={filesData} for:item="imgName" for:index="index">
+                                    {imgName.fileName}
+                                    <span key={imgName.fileName} data-id={index} onclick={removeReceiptImage} class="removeImage">X</span> &nbsp;
+                                </template>
+                                </template>                            
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </template>
+                <template if:true={isStepTwo}>
+                    <div class="slds-var-p-around_small">
+                        <lightning-layout multiple-rows>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="text" label="SSC School Name" value={ssc} placeholder="Enter High School" onchange={callssc} required="true"></lightning-input>
+                                <lightning-input type="text" label="Inter/Diploma College Name" value={inter} placeholder="Enter College Name" onchange={callinter} required ></lightning-input>
+                                <lightning-input type="text" label="UG/PG College Name" value={btech} placeholder="Enter College Name" onchange={callbtech} required ></lightning-input>
+                                <lightning-combobox name="branch" label="Specification In PG/UG" value={selectedValue} options={options} onchange={callbranch} required></lightning-combobox> 
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="number" step="0.01" label="SSC Percentage" value={sscper} min="0" max="100" placeholder="Enter SSC Percentage" onchange={callsscper} required ></lightning-input>
+                                <lightning-input type="number" step="0.01" label="Inter/Diploma Percentage" min="0" max="100" value={interper} placeholder="Enter Inter/Diploma Percentage" onchange={callintper} required ></lightning-input>
+                                <lightning-input type="number" step="0.01" label="UG/PG Percentage" value={btper} min="0" max="100" placeholder="Enter Btech Percentage" onchange={callbtper} required ></lightning-input>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </template>
+                <template if:true={isStepThree} >
+                    <div class="slds-var-p-around_small">
+                        <lightning-layout multiple-rows>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="text" label="Company Name" value={comp} placeholder="Enter the company name you have last worked" onchange={callcomp} required="true"></lightning-input>
+                                <lightning-input type="text" label="Domain" value={domain} placeholder="Enter role in the company" onchange={calldomain} required ></lightning-input>
+                                <lightning-textarea type="text" label="Skills" value={skills} placeholder="Enter the skills you have" onchange={callskills} required ></lightning-textarea>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="text" label="Current Package" value={cpack} placeholder="Enter Your Current Package" onchange={callcpack} required ></lightning-input>
+                                <lightning-input type="text" label="Expected CTC" value={pack} placeholder="Enter Your expected CTC" onchange={callpack} required ></lightning-input>
+                                <lightning-input type="text" label="Experience" value={exp} placeholder="Enter the Experiance in months" onchange={callexp} required ></lightning-input>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </template>
+                <div class="slds-m-top_small slds-m-bottom_medium">
+                    <template if:true={isEnablePrev}>
+                        <div align="left">
+                            <lightning-button variant="brand-outline" label="Previous" class="slds-p-left_medium" onclick={handlePrev}></lightning-button>
+                        </div> 
+                    </template>
+                    <template if:true={isEnableNext}>
+                        <div align="right">
+                            <lightning-button label="Next" variant="brand" class="slds-p-right_medium" onclick={handleNext}></lightning-button>
+                        </div>
+                    </template>
+                    <template if:true={isEnableFinish}>
+                        <div align="center">
+                            <lightning-button label="Save" style="margin:5px;" variant="brand" class="col-md-12 text-middle" onclick={handlesave}></lightning-button>
+                            <lightning-button label="Cancel" style="margin:5px;" variant="brand-outline" class="col-md-12 text-middle" onclick={handlecancel} ></lightning-button>
+                        </div>
+                    </template>
+                </div>
+        </div>
+        </lightning-card>
+</template>

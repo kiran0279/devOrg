@@ -1,0 +1,13 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 04-06-2022
+  @last modified by  : Anup Kaage
+-->
+<template>
+    <lightning-card title="Data Table With Wire" >
+        <lightning-datatable key-field="Id" data={sai.data} columns={col} onsave={handlesave} draft-values={draftvalues} ></lightning-datatable>
+    </lightning-card>
+    
+</template>

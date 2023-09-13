@@ -1,0 +1,21 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 04-18-2022
+  @last modified by  : Anup Kaage
+-->
+<template>
+    <lightning-card title="Search Contact Wire" >
+        <lightning-input label="Search Text" type="search" value={searchkey} onchange={handlechange} ></lightning-input>
+        <template if:true={contact.data}>
+            <template for:each={contact.data} for:item ='con' >
+                    <p key = {con.Id}>LastName : {con.LastName}</p>
+            </template>
+        </template>
+        <template if:true={contact.error} >
+            sorry Your contact data cannot display due to {contact.error} please try another text...
+        </template>
+    </lightning-card>
+    
+</template>

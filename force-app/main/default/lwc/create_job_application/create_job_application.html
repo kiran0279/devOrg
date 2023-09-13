@@ -1,0 +1,81 @@
+<!--
+  @description       : 
+  @author            : Anup Kaage
+  @group             : 
+  @last modified on  : 05-09-2022
+  @last modified by  : Anup Kaage
+-->
+<template >
+    <form>
+        <lightning-card title="Fill the Job Application" > 
+            <!-- <lightning-progress-indicator current-step={curretst}  type="path" variant="base">
+                <template for:each={options} for:item="step">
+                    <lightning-progress-step label={step.label} onchange={callbranch} value={step.value} key={step.label}></lightning-progress-step>
+                </template>
+            </lightning-progress-indicator> -->
+            <lightning-accordion  active-section-name={section}  onsectiontoggle={handleSectionToggle}>
+                <lightning-accordion-section name="personal" label=" Enter Personal Details">
+                
+                        <div class="slds-var-p-around_small">
+                    
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                    <lightning-input type="text" label="First Name" placeholder="Enter First Name" onchange={callfrn} required ></lightning-input>
+                                    <lightning-input type="text" label="Last Name" placeholder="Enter Last Name" onchange={calllsn} required></lightning-input>
+                                    <lightning-input type="text" label="Father Name" placeholder="Enter First Name" onchange={callatherf} required ></lightning-input>
+                                    <lightning-textarea type="text" label="Address" placeholder="Enter Address to communicate" onchange={calladdress} required ></lightning-textarea>
+                                </lightning-layout-item>
+                                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                    <lightning-input type="number" label="Adhar number" placeholder="Enter Adhar Number" onchange={calladhnum} required ></lightning-input>
+                                    <lightning-input type="Phone" label="Phone" placeholder="Ex : 0123456789" onchange={callph} required ></lightning-input>
+                                    <lightning-input type="Email" label="Email" placeholder="abc@gmail.com" onchange={callemail} required ></lightning-input>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </div>
+                
+                </lightning-accordion-section>
+                <lightning-accordion-section name="education" label="Enter Education Details">
+                    <div class="slds-var-p-around_small">
+                        <lightning-layout multiple-rows>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="text" label="SSC School Name" placeholder="Enter High School" onchange={callssc} required="true"></lightning-input>
+                                <lightning-input type="text" label="Inter/Diploma College Name" placeholder="Enter College Name" onchange={callinter} required ></lightning-input>
+                                <lightning-combobox name="branch" label="Btech Branch" value={selectedValue} options={options} onchange={callbranch} required></lightning-combobox> 
+                                <lightning-input type="text" label="Btech College Name" placeholder="Enter College Name" onchange={callbtech} required ></lightning-input>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="number" label="Percent In SSC" placeholder="Enter SSC Percentage" onchange={callsscper} required ></lightning-input>
+                                <lightning-input type="number" label="Percent In Inter/Diploma" placeholder="Enter Inter/Diploma Percentage" onchange={callintper} required ></lightning-input>
+                                <lightning-input type="number" label="Btech Percent" placeholder="Enter Btech Percentage" onchange={callbtper} required ></lightning-input>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </lightning-accordion-section > 
+                <lightning-accordion-section name="Exeriance" label="Work Experience Details">
+                    <div class="slds-var-p-around_small">
+                        <lightning-layout multiple-rows>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="text" label="Company Name" placeholder="Enter the company name you have last worked" onchange={callcomp} required="true"></lightning-input>
+                                <lightning-input type="text" label="Domain" placeholder="Enter role in the company" onchange={calldomain} required ></lightning-input>
+                                <lightning-textarea type="text" label="Skills" placeholder="Enter the skills you have" onchange={callskills} required ></lightning-textarea>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                                <lightning-input type="number" label="Current Package" placeholder="Enter Your Current CTC" onchange={callcurrentpack} required ></lightning-input>
+                                <lightning-input type="number" label="Expected Package" placeholder="Enter Your expected CTC" onchange={callpack} required ></lightning-input>
+                                <lightning-input type="number" label="Experience" placeholder="Enter the Experiance in months" onchange={callexp} required ></lightning-input>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </lightning-accordion-section>
+            </lightning-accordion>
+            <lightning-input type="file" onchange={onFileUpload} required name="uploadFile" label="Upload File"></lightning-input>  
+
+            <div class="slds-var-p-around_small">
+                <lightning-button-group>
+                    <lightning-button label="Save" variant="success" onclick={save} ></lightning-button>
+                    <lightning-button label="cancel" variant="brand-outline" onclick={cancel} ></lightning-button>
+                </lightning-button-group>
+            </div>
+        </lightning-card>
+    </form>
+</template>
