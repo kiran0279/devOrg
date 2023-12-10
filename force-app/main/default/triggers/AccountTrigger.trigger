@@ -40,4 +40,7 @@
         // {
         //     AccountHandler.createAfflie(Trigger.New);
         // }
+        // if(Trigger.isAfter && Trigger.isInsert){
+        //     JsonParserExample.createAcc(Trigger.new);
+        //      }
     }

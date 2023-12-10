@@ -1,0 +1,48 @@
+<!-- feedbackFormLWC.html -->
+<template>
+    <lightning-card title="Customer Feedback Form" style="background-color: aquamarine;">
+        <div class="lightningfields">
+            <div class="slds-card">
+                <div class="slds-p-around_medium">
+                
+                <!-- Customer Feedback Name -->
+                <lightning-input label="Customer Feedback Name" value={customerFeedbackName}
+                    onchange={handleCustomerFeedbackNameChange}>
+                </lightning-input>
+                <!-- Feedback Type -->
+                <lightning-combobox label="Feedback Type" options={feedbackTypeOptions} value={feedbackType}
+                    onchange={handleFeedbackTypeChange}>
+                </lightning-combobox>
+                <!-- Description -->
+                <lightning-textarea required label="Describe Your Feedback:" value={description}
+                    onchange={handleDescriptionChange}>
+                </lightning-textarea>
+                <!-- Satisfaction Rating -->
+                Rating
+                <div class="slds-p-around_medium">
+                    <div class="rate">
+                        <input type="radio" id="star5" name="Rate" value="5" onchange={rating} />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="Rate" value="4" onchange={rating} />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="Rate" value="3" onchange={rating} />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="Rate" value="2" onchange={rating} />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="Rate" value="1" onchange={rating} />
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+                </div><br/><br/><br/>
+
+
+                <!-- Submit Button -->
+                <lightning-modal-footer>
+                <lightning-button class="slds-align_absolute-center" label="Submit Feedback" variant="brand"
+                    onclick={handleSubmit}>
+                </lightning-button>
+            </lightning-modal-footer>
+            </div>
+        </div>
+        </div>
+    </lightning-card>
+</template>

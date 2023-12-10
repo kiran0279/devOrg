@@ -2,8 +2,12 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     
     <types>
-        <members>propertyFilter</members>
+        <members>*</members>
         <name>LightningComponentBundle</name>
+    </types>
+     <types>
+        <members>*</members>
+        <name>ApexClass</name>
     </types>
     <version>57.0</version>
 </Package>

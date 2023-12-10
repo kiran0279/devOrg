@@ -1,0 +1,94 @@
+<template>
+    <Lightning-card>
+        <!-- <div class="slds-size_3-of-4"> -->
+        <template if:true={isOpenButtons}>
+        <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+            <lightning-carousel class = "centered">
+        <!-- <lightning-layout  multiple-rows>        -->
+              <!-- <lightning-layout-item size ="4"> -->
+                <!-- <div onclick={ss} > -->
+                    <!-- <div style={backgroundStyle>  -->
+                        
+                 <!-- <div class="container slds-p-right_medium slds-p-left_medium"> -->
+                       
+                            <lightning-carousel-image
+                            src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ_9mTSMj1SOyrQe3bntMK2bLi6ugNAyrdOw&usqp=CAU"
+                            header = "Temples" onclick={onClickHandler}
+                            href = "javascript:void(0);">
+                            </lightning-carousel-image>
+                        <!-- <img style="max-height: 200px"  alt="Snow" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ_9mTSMj1SOyrQe3bntMK2bLi6ugNAyrdOw&usqp=CAU'></img> -->
+                        <!-- <div class="centered">Temples</div> -->
+                    
+                    <!-- </div> -->
+                <!-- </lightning-layout-item> -->
+                <!-- <lightning-layout-item size ="4"> -->
+                    <!-- <div class="container slds-p-right_medium"> -->
+                        <lightning-carousel-image
+                        src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2h8-EoIxMcYWgDUjKWor-QJtGCklT7gym4Q&usqp=CAU"
+                        header = "Restuarents" onclick={onClickHandler}
+                        href = "javascript:void(0);">
+                        </lightning-carousel-image>
+                        <!-- <img style="max-height: 200px"  alt="Snow" src='https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/08/banner_1400x400px-845x321.jpg'></img> -->
+                        <!-- <div class="centered1">Restarents</div> -->
+                    <!-- </div> -->
+                <!-- </lightning-layout-item> -->
+                <!-- <lightning-layout-item size ="4"> -->
+                    <!-- <div class="container slds-p-right_medium"> -->
+                        <lightning-carousel-image
+                        src = "https://www.treebo.com/blog/wp-content/uploads/2018/05/A-View-of-the-Shivanasamudra-Waterfalls.jpg"
+                        header = "Tourism Places" onclick={onClickHandler}
+                        href = "javascript:void(0);">
+                        </lightning-carousel-image>
+                    <!-- </lightning-carousel> -->
+                        <!-- <img style="max-height: 200px"  alt="Snow" src='https://www.treebo.com/blog/wp-content/uploads/2018/05/A-View-of-the-Shivanasamudra-Waterfalls.jpg'></img> -->
+                        <!-- <div class="centered2">Tourism Places</div> -->
+                    <!-- </div> -->
+                <!-- </lightning-layout-item> -->
+                <!-- <lightning-layout-item size ="4"> -->
+                    <!-- <div class="container slds-p-right_medium slds-p-left_medium"> -->
+                        <lightning-carousel-image
+                        src = "https://www.treebo.com/blog/wp-content/uploads/2018/05/A-View-of-the-Shivanasamudra-Waterfalls.jpg"
+                        header = "Malls" onclick={onClickHandler}
+                        href = "javascript:void(0);">
+                        </lightning-carousel-image>
+                        <!-- <img style="max-height: 200px"  alt="Snow" src='https://www.treebo.com/blog/wp-content/uploads/2018/05/A-View-of-the-Shivanasamudra-Waterfalls.jpg'></img> -->
+                        <!-- <div class="centered2">Tourism Places</div> -->
+                    <!-- </div> -->
+          
+                <!-- </lightning-layout-item> -->
+                 
+          <!-- </lightning-layout> -->
+        </lightning-carousel>
+        </div>
+    </template>
+    <template if:true={isopenDetails}>
+        <lightning-layout>
+            <template for:each={placeRecords} for:item="place">
+                <div key ={place.Id}>
+                <lightning-layout-item padding="around-small" size="3"  >
+                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_center " style="height: 180px;width: 350px;">
+                        <img 
+                        src={place.imgUrl} 
+                        alt="User Image" 
+                        height="120px" 
+                        width="120px"/>
+                    </div>
+                </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3" >
+                <div class="custom-box slds-box slds-p-around_medium slds-text-align_left" style="width: 350px;">
+                    <p>Name            : {place.Name}</p>
+                    <p>Description     : {place.Description__c} </p>
+                    <p>Distance        : {place.distance} Km</p>
+                    <p>Travel Time     : {place.totalTime} Min</p>
+                    <p>Contact Info    : </p>
+                    <p>Rating          : {place.Rating__c} /5</p>
+                </div>
+            </lightning-layout-item>
+        </div>
+        </template>
+        </lightning-layout>
+    
+    </template>
+        <!-- </div> -->
+    </Lightning-card>
+</template>

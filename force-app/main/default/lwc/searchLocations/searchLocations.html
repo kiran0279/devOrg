@@ -1,0 +1,60 @@
+<template>
+    <lightning-card style = "{getBackgroundImage}" >
+        <div class="slds-p-horizontal_medium">
+            <div class="slds-p-left_x-large slds-p-right_x-large">
+                <lightning-input  type="search" class="slds-m-bottom_small" label="Search Place Name or City" onchange={searchPlaceAction} onclick={selectOption} value={selectedRecord.Name}></lightning-input>
+                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">
+                    <div id="listbox-id-1" class="slds-dropdown-trigger slds-dropdown_length-with-icon-5 slds-dropdown_fluid" role="listbox">
+                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                            <template if:false={displyOptions}>
+                                <template for:each={placesList} for:item="placeObj">
+                                    <li key={placeObj.Id} onclick={handleOptionClick} data-record-id={placeObj.Id} role="presentation" data-name={placeObj.Name}>
+                                        <span class="slds-lookup__item-action slds-lookup__item-action--label" role="option">
+                                            <!-- icon Code -->
+                                            <span class="slds-truncate">{placeObj.Name}<br/>
+                                                <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">
+                                                    {placeObj.Address__City__s}
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </li>
+                                </template>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+                <template if:true={displyDetais}>
+                    <lightning-layout>
+                        <lightning-layout-item flexibility="auto" >
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center " style="height: 180px;width: 350px;">
+                                <img 
+                                src={selectedRecord.Image__c} 
+                                alt="User Image" 
+                                height="120px" 
+                                width="120px"/>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" >
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_left" style="width: 350px;">
+                                <p>Name            : {selectedRecord.Name}</p>
+                                <p>Description     : {selectedRecord.Description__c} </p>
+                                <p>Distance        : {wrapObj.distance} Km</p>
+                                <p>Travel Time     : {wrapObj.totalTime} Min</p>
+                                <p>Contact Info    : </p>
+                                <p>Rating          : {selectedRecord.Rating__c} /5</p>
+                                <lightning-button
+                                class="slds-m-top_medium slds-p-around_medium slds-p-top_medium"
+                                onclick={navigateToMap}
+                                label={drivingDirectionsLabel}
+                                disabled={isButtonDisabled}
+                                icon-name="utility:new_window"
+                                icon-position="right"
+                              ></lightning-button>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

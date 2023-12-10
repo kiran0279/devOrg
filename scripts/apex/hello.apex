@@ -8,3 +8,7 @@
 string tempvar = 'Enter_your_name_here';
 System.debug('Hello World!');
 System.debug('My name is ' + tempvar);
+
+for(Place__c place : [SELECT Id, Name, Rating__c, Image__c, Address__c, Description__c	 FROM Place__c WHERE Address__c INCLUDES ('Hy')]){
+    system.debug(place);
+        }

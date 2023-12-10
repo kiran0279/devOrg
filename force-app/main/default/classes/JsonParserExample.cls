@@ -1,13 +1,21 @@
 public with sharing class JsonParserExample { 
-    public  List<String> places{set;get;}
-    public  String pincode {set;get;}
-    public  void createAcc(Integer postalCode) 
+    public static  List<String> places{set;get;}
+    public static String pincode {set;get;}
+    public static  void createAcc(List<Account> accList)
     { 
+        List<Integer> postalcodes = new List<Integer>();
+
+        for(Account acc : accList)
+        {
+            Integer postCode = integer.valueof(acc.BillingPostalCode);
+            postalcodes.add(postCode);
+        }
+        Integer postalCode = postalcodes[0];
         places = New List<String>();
        String e = 'https://api.postalpincode.in/pincode/';
         String n = String.valueOf(postalCode);
         String en = e+n;
-       Http p = New Http();
+       Http p = New Http();   
        HttpRequest request = New HttpRequest();
        request.setEndpoint(en);
        request.setMethod('GET');
@@ -23,5 +31,9 @@ public with sharing class JsonParserExample {
            }
        }
        System.debug('Places : '+places);
+       for(Account acc : accList)
+       {
+          acc.BillingCity = places[0];
+       }
     }
 }

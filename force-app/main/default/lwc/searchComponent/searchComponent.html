@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:account" size="small"></lightning-icon> Custom Search Functionality on Account Object in LWC.          
+        </h3>
+ 
+        <p class="slds-p-horizontal_small">
+         <lightning-input  type="search" class="slds-m-bottom_small" label="Search Place Name" onchange={searchPlaceAction} value={placeNames}></lightning-input>
+         </p>
+         <div class="slds-p-around--medium">
+               
+                <template for:each={placesList} for:item="placeObj" for:index="index">                          
+                    <li key={placeObj.Id}>{placeObj.Name}</li> <!-- Change Name and Id based on your object fields -->
+                    <li key={placeObj.Id}>{placeObj.Address__City__s}</li>
+                </template>          
+         </div>  
+ 
+ <br/> <br/>  
+     </lightning-card>
+</template>

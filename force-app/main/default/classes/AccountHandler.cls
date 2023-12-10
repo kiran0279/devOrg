@@ -9,7 +9,7 @@ public with sharing class AccountHandler {
     }
     public static void deleteContacts(List<Account> listAcc)
     {
-        list<id> AccountIds=new list<id>();
+        list<id> AccountIds=new list<id>(); 
         for(Account accountVar:listAcc)
         {
             AccountIds.add(accountVar.id);
