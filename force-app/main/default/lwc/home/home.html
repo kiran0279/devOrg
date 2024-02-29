@@ -1,0 +1,33 @@
+<template>
+  <div class ="slds-align_absolute-center slds-theme_shade slds-text-heading_large">
+  <h1>Zero Hunger And Donation</h1>
+ </div>
+  <lightning-carousel class="slds-align_absolute-center slds-var-m-around_xx-small">
+    <template if:true={players}>
+      <template for:each={players} for:item="player">
+      <lightning-carousel-image
+        key={player.id}
+        src={player.src}
+        header={player.header}>
+      </lightning-carousel-image>
+    </template>
+  </template>
+</lightning-carousel>
+
+<div class="slds-align_absolute-center slds-var-m-left_large slds-app-launcher__tile-body">
+
+  <h1 class="slds-theme_inverse slds-grid_align-center"> Infuencing Donation Click here</h1>
+  
+  <lightning-button variant="success" label="Donate" title="Successful action" onclick={handleNavigateProvider}
+        class="slds-grid_align-center slds-var-m-around_medium" >
+    </lightning-button>
+    <h1 class ="slds-theme_success slds-grid_align-center"> The NGOs ,opranages and old ages homes are welcome 
+         Click here to fill the form 
+    </h1>
+    <lightning-button variant="Brand" label="Receive" title="Successful action" onclick={handleNavigateReceiver}
+        class="slds-grid_align-center slds-var-m-around_medium">
+    </lightning-button>
+
+
+</div>
+ </template>

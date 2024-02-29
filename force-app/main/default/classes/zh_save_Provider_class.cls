@@ -1,21 +1,15 @@
-/**
- * @description       : 
- * @author            : Saikiran Chintakayala
- * @group             : 
- * @last modified on  : 05-26-2022
- * @last modified by  : Saikiran Chintakayala 
-**/
-global with sharing class saveFiles {
+public with sharing class zh_save_Provider_class {
     @AuraEnabled  
-   global static string saveApplication(Job_Application__c jobApplictiondata, string file, string fileName) {  
+   public static string saveApplication(zh_Providers__c jobApplictiondata, string file, string fileName) {  
      string applicationNumber;  
      try{  
+        System.debug('jobApplictiondata :'+jobApplictiondata);
        Insert jobApplictiondata;  
        System.debug('@@@@@@@@@ :'+applicationNumber);
        System.debug('app Id :'+jobApplictiondata.Id);
-       Job_Application__c jobApp = [SELECT Id, Name From Job_Application__c
+       zh_Providers__c jobApp = [SELECT Id, Name,zh_Unique_Id__c From zh_Providers__c
                                     WHERE Id =:jobApplictiondata.Id ];
-      applicationNumber = String.valueOf(jobApp.Name);  
+      applicationNumber = String.valueOf(jobApp.zh_Unique_Id__c);  
        String base64File = EncodingUtil.urlDecode(file, 'UTF-8');     
        ContentVersion contentVersionRec = new ContentVersion();  
        contentVersionRec.Title = fileName;  
@@ -28,6 +22,7 @@ global with sharing class saveFiles {
        system.debug('Exception===>'+ex.getMessage());  
      }  
      System.debug('applicationNumber :'+applicationNumber);
+
      return applicationNumber;  
    }    
 }

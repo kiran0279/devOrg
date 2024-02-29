@@ -1,6 +1,6 @@
 import { LightningElement, api, wire, track } from 'lwc';
 import Degree_Btech__c_FIELD from '@salesforce/schema/Job_Application__c.Degree_Btech__c';
-import { getPicklistValues, getObjectInfo } from 'lightning/uiObjectInfoApi';
+import { getPicklistValues, getObjectInfo } from 'lightning/uiObjectInfoApi'; 
 import Job_Application__c_OBJECT from '@salesforce/schema/Job_Application__c';
 import saveRecord from '@salesforce/apex/saveFiles.saveApplication';
 //import { createRecord } from 'lightning/uiRecordApi';

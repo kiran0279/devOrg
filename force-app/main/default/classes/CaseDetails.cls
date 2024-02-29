@@ -12,7 +12,7 @@ public with sharing class CaseDetails {
     {
         List<Case> getCase = new List<Case>();
         getCase.add(CaseDetails);
-        Insert getCase;        
+        Insert getCase;         
     }
     @AuraEnabled
     public static void sendMails(String NAME, string EMAIL,string PHONE, string SUBJECT, string DESCRIPTION)

@@ -1,4 +1,4 @@
-trigger LeadTrigger on Lead ( after insert ) {
+trigger LeadTrigger on Lead ( before insert, before update ) {
     // LeadHandler handler = new LeadHandler(); 
     // if (Trigger.isInsert) {
     //     if (Trigger.isAfter) {

@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Zero Hunger and Donation-Receiver Form ">
+        <div class="slds-var-p-around_medium">
+            <lightning-input  type="text" label="Name of the Charity" value={ngoname} placeholder="Enter Name of the Charity" onchange={fetchngoname} required ></lightning-input>
+            <lightning-input  type="text" label="Name of the Receiver or Point Of Contact" value={pointofcontact} placeholder="Enter Name of the Point of Contact" onchange={fetchpointofcontact} required ></lightning-input>
+            <lightning-input  type="text" label="Certification/Registration of NGO Details" value={ngodetails} placeholder="Enter the registration details of the NGO" onchange={fetchngodetails} required ></lightning-input>
+            <lightning-input  type="text" label="Aadhar Card of the Incharge" value={aadhardetails} placeholder="Enter the aadhar card number of the NGO incharge" onchange={fetchaadhar} ></lightning-input>
+            <lightning-input  type="Phone" label="Contact Number" value={phone} placeholder="Enter Contact number" pattern="[6-9]{1}[0-9]{9}$" message-when-pattern-mismatch="Please enter a valid phone number" onchange={fetchphone} required ></lightning-input>
+            <lightning-input type="Email" label="Email Id" value={email} placeholder="sample@gmail.com" onchange={fetchemail} required ></lightning-input>
+            <lightning-input  type="text" label="Quantity Required" value={quantityrequired} placeholder="Enter amount of quantity required"  onchange={fetchquantityrequired} required ></lightning-input>
+                <lightning-input-address
+                address-label="Address"
+                street-label="Street"
+                city-label="City"
+                country-label="Country"
+                province-label="State"
+                postal-code-label="Zip Code"
+                street=""
+                city=" "
+                country="India"
+                province=" "
+                postal-code=""
+                show-address-lookup
+                onchange={fetchaddress}
+            >
+            </lightning-input-address>
+                <div align="center" class="slds-m-top_medium slds-m-bottom_medium">
+                    <lightning-button label="Send" style="margin:5px;" variant="brand" class="col-md-12 text-middle" onclick={handlesend}></lightning-button>
+                    <lightning-button label="Cancel" style="margin:5px;" variant="brand-outline" class="col-md-12 text-middle" onclick={handlecancel} ></lightning-button>
+                </div>
+        </div>
+    </lightning-card>
+</template>
